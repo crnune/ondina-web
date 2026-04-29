@@ -1,0 +1,404 @@
+/* =========================
+   RESET Y BASE
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    /*background: #e9eded;*/
+    /*color: #333;*/
+    padding-top: 100px; /* espacio por header + nav fijo */
+    background: var(--color-fondo);
+    color: var(--color-texto);
+}
+
+:root {
+    --color-principal: #ae8462;   /* tu color base (bien elegido) */
+    --color-secundario: #2c2c2c;  /* negro suave */
+    --color-fondo: #f8f8f8;       /* fondo limpio */
+    --color-acento: #d9a066;      /* dorado suave */
+    --color-texto: #333;
+}
+
+/* =========================
+   HEADER CON MENU PRO
+========================= */
+.header {
+    background: rgba(255, 255, 255, 0.95);   
+    border-bottom: 1px solid #eee;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;    
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+
+/* LOGO */
+.logo {
+    height: 60px;   /* 🔥 controla altura en vez de ancho */
+    width: auto;
+    object-fit: contain;
+    image-rendering: -webkit-optimize-contrast; /* mejora nitidez */
+}
+
+/* MENU */
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 0.95rem;
+    font-weight: 500;
+    position: relative;
+    transition: 0.3s;
+}
+
+/* EFECTO LINEA ABAJO */
+.menu a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background: #ff831e;
+    transition: 0.3s;
+}
+
+.menu a:hover::after {
+    width: 100%;
+    background: var(--color-principal);
+}
+
+/* BOTON DESTACADO */
+.btn-menu {
+    background: var(--color-principal);
+    color: white !important;
+    padding: 8px 15px;
+    border-radius: 20px;
+}
+
+.btn-menu:hover {
+    background: var(--color-acento);
+}
+
+/* SOMBRA AL HACER SCROLL */
+.header.scrolled {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* =========================
+   HERO (INICIO)
+========================= */
+.hero {
+    height: 60vh; /* 🔥 más compacto */
+    background-image: url('img/Fondo.png');
+    background-size: cover; /* 🔥 clave */
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+}
+.hero h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: black;
+    max-width: 600px;    
+}
+
+/* =========================
+   BENEFICIOS
+========================= */
+.beneficios {    
+    padding: 0px 10px 20px 20px; /* menos espacio arriba */
+}
+
+.beneficio {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.beneficios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    text-align: center;
+}
+
+/* =========================
+   SECCIONES GENERALES
+========================= */
+.section {
+    padding: 30px 20px;
+    text-align: center; /*este es el del mobiliario*/
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* =========================
+   GRID MOBILIARIO
+========================= */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+}
+/* =========================
+   TARJETAS
+========================= */
+.card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+.card img {
+    width: 100%;
+    height: 225px; /* más baja */
+    object-fit: cover;
+}
+
+.card h3 {
+    margin: 5px 0;
+}
+
+.card span {
+    color: #777;
+    font-size: 0.9rem;
+}
+
+.container h2 {
+    color: #ae8462;    
+}
+
+/* =========================
+   GALERÍA EVENTOS
+========================= */
+.galeria {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.galeria-grid img {
+    width: 100%;    
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* =========================
+   CONTACTO
+========================= */
+.contacto {
+    background: var(--color-principal);
+    color: white;
+    font-size: 15px;
+    color: black;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+/* =========================
+   MODAL HISTORIA
+========================= */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+}
+
+.modal-contenido {
+    background: white;
+    margin: 10% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.cerrar {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.whatsapp {
+    display: inline-block;
+    background: #25D366;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.btn-mapa {
+    display: inline-block;
+    margin-top: 10px;
+    background: #ae8462;
+    color: black;
+    border-style: outset;
+    padding: 8px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+.container h2 {
+    color: var(--color-principal);
+}
+
+.beneficio span {
+    font-size: 20px;
+    color: #ae8462;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* =========================
+   RESPONSIVE (CELULAR)
+========================= */
+@media (max-width: 768px) {
+    /* Header */
+    .header-content {
+        flex-direction: column; /* logo arriba, texto abajo */
+        text-align: center;
+        gap: 5px;
+    }
+    body {
+        padding-top: 120px; /* solo header */
+    }
+    .logo {
+        width: 45px;
+    }
+    .titulo {
+        font-size: 1rem;
+        text-align: center;
+    }
+    .header h1 {
+        font-size: 1.2rem;
+    }
+    /* Navbar */
+        .nav {
+        position: relative; /* 🔥 deja de ser fijo */
+        top: 0;
+    }
+    .logo {
+        width: 45px;
+    } 
+    .nav a {
+        padding: 10px;
+        width: 100%;
+        text-align: center;
+    }
+    /* Hero */
+    .hero {
+        height: auto;
+        padding: 40px 20px;
+        background-size: 100%; /* mejor ajuste en móvil */
+    }       
+    .hero h2 {
+        font-size: 2rem;
+    }
+    .hero p {
+        font-size: 1rem;
+    }
+    /* Grid jugadores */
+    .grid {
+        /*grid-template-columns: 1fr; /* 🔥 una sola columna */
+        grid-template-columns: repeat(2, 1fr); /* 🔥 2 columnas */
+        gap: 10px;*/
+    }
+    .card img {
+        height: 250px;
+    }
+    .card h3 {
+        font-size: 0.9rem;
+    }
+    .card span {
+        font-size: 0.75rem;
+    }
+    .card {
+        border-radius: 12px;
+    }
+
+    .beneficios {
+        padding: 20px;
+    }
+
+    .beneficios-grid {
+        grid-template-columns: 1fr; /* 🔥 una columna */
+        gap: 15px;
+    }
+
+    .beneficio {
+        text-align: left;
+        padding: 18px;
+    }
+
+    .beneficio h3 {
+        font-size: 1.1rem;
+        margin-bottom: 5px;
+    }
+
+    .beneficio p {
+        font-size: 0.9rem;
+        color: #666;
+    }
+}
+
